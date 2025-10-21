@@ -87,16 +87,16 @@ function executaQuestao() {
     }else{
         caixaPerguntas.textContent = rodada.enunciado;
         alternativa1.textContent = rodada.alternativas[0].texto
-        alternativa1.addEventListener("click", function () {
+        alternativa1.onclick = function () {
             respostas.push(rodada.alternativas[0].afirmacao);
             perguntaAtual++;
             executaQuestao();
-        })
+        }
         alternativa2.textContent = rodada.alternativas[1].texto
-        alternativa2.addEventListener("click", function () {
+        alternativa2.onclick = function () {
             respostas.push(rodada.alternativas[1].afirmacao);
             perguntaAtual++;
             executaQuestao();
-        })
+        }
     }
 }
