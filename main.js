@@ -72,25 +72,22 @@ const perguntas = [
     },
 ];
 
-let atual = 0;
-let perguntaAtual;
+let perguntaAtual = 0;
+let respostas = [];
+const alternativa1 = document.getElementById("alternativa1");
 
-function mostraPergunta(){
-    perguntaAtual = perguntas[atual];
-    caixaPerguntas.textContent = perguntaAtual.enunciado;
-    mostraAlternativas();
-} 
-
-function mostraAlternativas() {
-    for (const alternativa of perguntaAtual.alternativas){
-        const botaoAlternativas = document.createElement("button");
-        botaoAlternativas.textContent = alternativa.texto;
-        botaoAlternativas.addEventListener("click", function () {
-            atual++
-            mostraPergunta();
+function executaQuestao() {
+    rodada = perguntas[perguntaAtual];
+    if (rodada == "") {
+        caixaPerguntas.textContent = respostas.join(", ");
+    }else{
+        caixaPerguntas.textContent = rodada.enunciado;
+        alternativa1.textContent = rodada.alternativa.texto
+        alternativa1.addEventListener("click", function () {
+            respostas.push(rodada.alternativa.afirmacao);
+            perguntaAtual++;
+            executaQuestao();
         })
-        caixaAlternativas.appendChild(botaoAlternativas);
     }
 }
-
-mostraPergunta();
+executaQuestao();
