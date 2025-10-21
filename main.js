@@ -85,15 +85,15 @@ function executaQuestao() {
         alternativa2.style.display = "none";
     }else{
         caixaPerguntas.textContent = rodada.enunciado;
-        alternativa1.textContent = rodada.alternativa[0].texto
+        alternativa1.textContent = rodada.alternativas[0].texto
         alternativa1.addEventListener("click", function () {
-            respostas.push(rodada.alternativa[0].afirmacao);
+            respostas.push(rodada.alternativas[0].afirmacao);
             perguntaAtual++;
             executaQuestao();
         })
-        alternativa2.textContent = rodada.alternativa[1].texto
+        alternativa2.textContent = rodada.alternativas[1].texto
         alternativa2.addEventListener("click", function () {
-            respostas.push(rodada.alternativa[1].afirmacao);
+            respostas.push(rodada.alternativas[1].afirmacao);
             perguntaAtual++;
             executaQuestao();
         })
