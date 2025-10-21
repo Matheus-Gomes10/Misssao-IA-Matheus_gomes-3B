@@ -72,7 +72,7 @@ const perguntas = [
     },
 ];
 
-let perguntaAtual = -1;
+let perguntaAtual = 0;
 let respostas = [];
 const alternativa1 = document.getElementById("alternativa1");
 const alternativa2 = document.getElementById("alternativa2");
