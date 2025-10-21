@@ -79,7 +79,7 @@ const alternativa2 = document.getElementById("alternativa2");
 
 function executaQuestao() {
     rodada = perguntas[perguntaAtual];
-    if (rodada == "") {
+    if (!rodada) {
         CaixaResultado.textContent = respostas.join(", ");
         alternativa1.style.display = "none";
         alternativa2.style.display = "none";
