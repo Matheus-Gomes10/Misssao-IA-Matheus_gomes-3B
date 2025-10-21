@@ -75,16 +75,25 @@ const perguntas = [
 let perguntaAtual = 0;
 let respostas = [];
 const alternativa1 = document.getElementById("alternativa1");
+const alternativa2 = document.getElementById("alternativa2");
 
 function executaQuestao() {
     rodada = perguntas[perguntaAtual];
     if (rodada == "") {
         caixaPerguntas.textContent = respostas.join(", ");
+        alternativa1.style.display = "none";
+        alternativa2.style.display = "none";
     }else{
         caixaPerguntas.textContent = rodada.enunciado;
-        alternativa1.textContent = rodada.alternativa.texto
+        alternativa1.textContent = rodada.alternativa[0].texto
         alternativa1.addEventListener("click", function () {
-            respostas.push(rodada.alternativa.afirmacao);
+            respostas.push(rodada.alternativa[0].afirmacao);
+            perguntaAtual++;
+            executaQuestao();
+        })
+        alternativa2.textContent = rodada.alternativa[1].texto
+        alternativa2.addEventListener("click", function () {
+            respostas.push(rodada.alternativa[1].afirmacao);
             perguntaAtual++;
             executaQuestao();
         })
